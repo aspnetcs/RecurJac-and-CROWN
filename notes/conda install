@@ -1,0 +1,80 @@
+https://blog.csdn.net/djfjkj52/article/details/107330301
+
+Ubuntu：conda的安装与使用
+
+Hali_Botebie 2020-07-14 09:20:45  4633  收藏 5
+分类专栏： ROS/DDS/autoSAR中间件
+版权
+
+ROS/DDS/autoSAR中间件
+专栏收录该内容
+12 篇文章1 订阅
+订阅专栏
+选择适合自己的版本，用wget命令下载。
+wget -c https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
+# 这个版本是适合于linux的，要看清楚噢。
+
+# mac用户请用：
+curl -O https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh
+
+# mac用户选择图形化界面的anaconda版本也可。
+# 传送门：https://www.anaconda.com/products/individual 
+# 往下翻，选择64-Bit Graphical Installer
+1
+2
+3
+4
+5
+6
+7
+8
+9
+这里选择的是latest-Linux版本，所以下载的程序会随着python的版本更新而更新（现在下载的版本默认的python版本已经是3.7了）
+
+chmod 777 Miniconda3-latest-Linux-x86_64.sh #给执行权限
+bash Miniconda3-latest-Linux-x86_64.sh #运行
+1
+2
+不将conda加入环境变量
+Do you wish the installer to initialize Miniconda3
+by running conda init? [yes|no]
+[no] >>> 
+1
+2
+3
+启动conda
+ubuntu@ubuntu:~/miniconda3/bin$ chmod 777 activate 
+ubuntu@ubuntu:~/miniconda3/bin$ source ./activate 
+(base) ubuntu@ubuntu:~/miniconda3/bin$ 
+1
+2
+3
+添加清华源
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge/
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/bioconda/
+1
+2
+3
+4
+conda config --set show_channel_urls yes
+conda config --get channels
+1
+2
+channel文件的位置：
+
+vim ~/.condarc
+1
+退出conda环境
+source ./deactivate
+# 或者用 
+conda deactivate
+1
+2
+3
+创建软件的软链接
+https://www.jianshu.com/p/edaa744ea47d
+
+参考：
+链接：https://www.jianshu.com/p/edaa744ea47d
